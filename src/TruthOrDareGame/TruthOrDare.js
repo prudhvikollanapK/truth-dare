@@ -1,23 +1,37 @@
 import React, { useState, useRef } from 'react';
-import { FaTrashAlt, FaTimes, FaHeart } from 'react-icons/fa';
+import { FaUser, FaUserPlus, FaTimes, FaHeart } from 'react-icons/fa';
 import './TruthOrDare.css';
 import { signature } from '../Assests/images/imagePath';
+import { RiErrorWarningFill } from "react-icons/ri";
+import { IoWarning } from "react-icons/io5";
+import { ImCross } from "react-icons/im";
 
 function TruthOrDare() {
   const [players, setPlayers] = useState([]);
   const [newPlayer, setNewPlayer] = useState("");
   const [selectedPlayer, setSelectedPlayer] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isWarningModalOpen, setIsWarningModalOpen] = useState(false); // For warning modal
+  const [isWarningModalOpen, setIsWarningModalOpen] = useState(false);
+  const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
   const wheelRef = useRef(null);
 
-  const addPlayer = () => {
-    if (newPlayer.trim() && !players.includes(newPlayer)) {
-      setPlayers([...players, newPlayer]);
-      setNewPlayer("");
-    }
-  };
+  const [error, setError] = useState(""); // State for error message
 
+  const addPlayer = () => {
+    if (!newPlayer.trim()) {
+      setError("Player name cannot be empty");
+      setIsErrorModalOpen(true)
+      return;
+    }
+    if (players.includes(newPlayer)) {
+      setError("Player already exists");
+      setIsErrorModalOpen(true)
+      return;
+    }
+    setPlayers([...players, newPlayer]);
+    setNewPlayer("");
+    setError("");
+  };
   const removePlayer = (playerName) => {
     setPlayers(players.filter((player) => player !== playerName));
   };
@@ -107,10 +121,14 @@ function TruthOrDare() {
           <input
             type="text"
             value={newPlayer}
-            onChange={(e) => setNewPlayer(e.target.value)}
+            onChange={(e) => {
+              setNewPlayer(e.target.value);
+              setError(""); // Clear error on input change
+            }}
             placeholder="Add a player"
+            
           />
-          <button onClick={addPlayer} className="animated-button">Add</button>
+          <button onClick={addPlayer} className="animated-button"><FaUserPlus fontSize={30}/></button>
         </div>
 
         <div className="players-list">
@@ -118,8 +136,8 @@ function TruthOrDare() {
             <div key={columnIndex} className="player-column">
               {playerColumn.map((player, index) => (
                 <div key={index} className="player-item">
-                  {player}
-                  <FaTrashAlt onClick={() => removePlayer(player)} />
+                 <FaUser color='#ffdd57'/>  {player}
+                  <ImCross className='remove-player' onClick={() => removePlayer(player)} />
                 </div>
               ))}
             </div>
@@ -141,7 +159,7 @@ function TruthOrDare() {
             <div className="emoji-launch">
               <span className="laughing-emoji">{getRandomLaughingEmoji()}</span>
             </div>
-            <h1><i>{selectedPlayer}</i></h1>
+            <h1 className='selected-player'><i>{selectedPlayer}</i></h1>
           </div>
         </div>
       )}
@@ -150,11 +168,22 @@ function TruthOrDare() {
         <div className="warning-modal">
           <div className="warning-modal-content">
             <FaTimes className="close-icon" onClick={() => setIsWarningModalOpen(false)} />
-            <h2>Warning!</h2>
-            <h4>At least 2 players are required to spin</h4>
+            <h2><RiErrorWarningFill fontSize={80} className='warning'/></h2>
+            <h4 className='warning-text'>At least 2 players are required to spin</h4>
           </div>
         </div>
       )}
+
+      {isErrorModalOpen && (
+        <div className="warning-modal">
+          <div className="warning-modal-content">
+            <FaTimes className="close-icon" onClick={() => setIsErrorModalOpen(false)} />
+            <h2><IoWarning fontSize={80} className='error'/></h2>
+            <h4 className='error-text'>{error}</h4>
+          </div>
+        </div>
+      )}
+
 
 
 

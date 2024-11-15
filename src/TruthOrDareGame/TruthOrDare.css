@@ -124,6 +124,9 @@
 .players-heading {
   display: flex;
   justify-content: center;
+  transform: scale(1.1);
+  color: #ffdd57;
+  text-shadow: 0 0 4px rgba(255, 221, 87, 0.8), 0 0 20px rgba(255, 221, 87, 0.6);
 }
 
 .player-details h3 {
@@ -155,8 +158,8 @@ input[type="text"]:focus {
 }
 
 .animated-button {
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 1%;
+  width: 20%;
   border-radius: 8px;
   background-color: #ffdd57;
   text-shadow: 0 0 10px rgba(255, 221, 87, 0.8), 0 0 20px rgba(255, 221, 87, 0.6);
@@ -169,28 +172,15 @@ input[type="text"]:focus {
 .animated-button:hover {
   background-color: #ffdd57;
   text-shadow: 0 0 10px rgba(255, 221, 87, 0.8), 0 0 20px rgba(255, 221, 87, 0.6);
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
-
+.warning, .warning-text, .error, .error-text, .selected-player, .player-item svg:hover  {
+  transform: scale(1.1);
+  color: #ffdd57;
+  text-shadow: 0 0 1px rgba(255, 221, 87, 0.8), 0 0 20px rgba(255, 221, 87, 0.6);
+}
 .animated-button:active {
   transform: scale(1);
-}
-
-button.animated-button {
-  background-color: #ffdd57;
-  text-shadow: 0 0 10px rgba(255, 221, 87, 0.8), 0 0 20px rgba(255, 221, 87, 0.6);
-  color: #000;
-  border-radius: 5px;
-  cursor: pointer;
-  border: none;
-  padding: 10px 20px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-button.animated-button:hover {
-  transform: scale(1.1);
-  background-color: #ffdd57;
-  text-shadow: 0 0 10px rgba(255, 221, 87, 0.8), 0 0 20px rgba(255, 221, 87, 0.6);
 }
 
 .players-list {
@@ -223,14 +213,13 @@ button.animated-button:hover {
   transform: scale(1.05);
 }
 
-.player-item svg {
+.remove-player{
   cursor: pointer;
-  color: #ff6347;
+  transform: scale(1.1);
+  color: #ffdd57;
+  text-shadow: 0 0 1px rgba(255, 221, 87, 0.8), 0 0 20px rgba(255, 221, 87, 0.6);
 }
 
-.player-item svg:hover {
-  color: #ff4500;
-}
 
 .modal, .warning-modal {
   position: fixed;
