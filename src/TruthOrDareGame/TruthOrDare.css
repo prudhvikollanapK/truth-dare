@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  height: 100vh;
+  height: 110vh;
   background: radial-gradient(circle, #1e1e2e, #141423);
   font-family: 'Comic Sans MS', Arial, sans-serif;
   color: #fff;
@@ -20,6 +20,13 @@
   position: absolute;
   top: 20px;
   animation: bounceIn 1s ease-out;
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 1.8rem;
+    top: 10px;
+  }
 }
 
 .wheel-container {
@@ -46,6 +53,13 @@
   cursor: pointer;
   position: relative;
   animation: rotateIn 2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .wheel {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 .bottle-container {
@@ -94,6 +108,14 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
   z-index: 5;
   animation: fadeInUp 1.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .player-details {
+    width: 80%;
+    right: 5%;
+    top: 60%;
+  }
 }
 
 .players-heading {
@@ -278,24 +300,15 @@ button.animated-button:hover {
 
 @keyframes bounceIn {
   0% {
-    transform: scale(0);
+    transform: scale(0.5);
+    opacity: 0;
   }
   60% {
     transform: scale(1.1);
+    opacity: 1;
   }
   100% {
     transform: scale(1);
-  }
-}
-
-@keyframes bounceInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -310,7 +323,7 @@ button.animated-button:hover {
 
 @keyframes zoomIn {
   0% {
-    transform: scale(0.7);
+    transform: scale(0.5);
     opacity: 0;
   }
   100% {
@@ -318,37 +331,24 @@ button.animated-button:hover {
     opacity: 1;
   }
 }
-
-.emoji-launch {
-  position: absolute;
-  top: -60px;
-  left: 50%;
-  transform: translateX(-50%) scale(0);
-  animation: laughAnimation 2s ease-out infinite;
-  pointer-events: none;
-  font-size: 4rem;
+.signature-container {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 10px;
+  width: 100%;
+  background-color: #fff;
 }
 
-.laughing-emoji {
-  font-size: 4rem;
-  animation: laughAnimation 2s ease-out infinite;
+.signature a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes laughAnimation {
-  0% {
-    opacity: 0;
-    transform: translateX(-50%) scale(0);
-  }
-  50% {
-    opacity: 1;
-    transform: translateX(-50%) scale(1.2);
-  }
-  80% {
-    opacity: 1;
-    transform: translateX(-50%) scale(1);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(-50%) scale(0);
-  }
+.signature img {
+  height: 40px;
+  width: auto;
 }

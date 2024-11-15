@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
-import { FaTrashAlt, FaTimes } from 'react-icons/fa';
+import { FaTrashAlt, FaTimes, FaHeart } from 'react-icons/fa';
 import './TruthOrDare.css';
+import { signature } from '../Assests/images/imagePath';
 
 function TruthOrDare() {
   const [players, setPlayers] = useState([]);
@@ -126,6 +127,13 @@ function TruthOrDare() {
         </div>
       </div>
 
+      <div className="signature-container">
+          <a className="signature" target='_blank' href='https://prudhvi-kollana-portfolio.vercel.app/'>
+            <FaHeart size={30} color="red" />
+            <img src={signature} alt="Signature" className="inline-block align-middle mx-2" />
+          </a>
+        </div>
+
       {isModalOpen && selectedPlayer && (
         <div className="modal">
           <div className="modal-content">
@@ -147,6 +155,9 @@ function TruthOrDare() {
           </div>
         </div>
       )}
+
+
+
     </div>
   );
 }
