@@ -352,3 +352,35 @@ button.animated-button:hover {
   height: 40px;
   width: auto;
 }
+
+.emoji-launch {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  animation: laughAnimation 2s ease-out infinite;
+  pointer-events: none;
+  font-size: 4rem;
+}
+.laughing-emoji {
+  font-size: 4rem;
+  animation: laughAnimation 2s ease-out infinite;
+}
+@keyframes laughAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.2);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(0);
+  }
+}
