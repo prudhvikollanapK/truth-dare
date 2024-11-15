@@ -60,6 +60,9 @@
     width: 200px;
     height: 200px;
   }
+  .wheel-container {
+    top: 20%;
+  }
 }
 
 .bottle-container {
