@@ -68,7 +68,7 @@ function TruthOrDare() {
   return (
     <div className="app">
       <div className="heading">
-        <h1>Truth or Dare</h1>
+        <h1>Truth r Dare</h1>
       </div>
 
       <div className="wheel-container">
