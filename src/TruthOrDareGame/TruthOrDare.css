@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  height: 110vh;
+  height: 100vh;
   background: radial-gradient(circle, #1e1e2e, #141423);
   font-family: 'Comic Sans MS', Arial, sans-serif;
   color: #fff;
@@ -18,7 +18,6 @@
   text-align: center;
   width: 100%;
   position: absolute;
-  top: 20px;
   animation: bounceIn 1s ease-out;
 }
 
@@ -36,7 +35,7 @@
   position: absolute;
   top: 30%;
   left: 20%;
-  animation: slideInLeft 1s ease-in-out;
+  animation: fadeInUp 2.5s ease-in-out;
 }
 
 .wheel {
@@ -331,7 +330,6 @@ input[type="text"]:focus {
   position: relative;
   padding: 10px;
   width: 100%;
-  background-color: #fff;
 }
 
 .signature a {

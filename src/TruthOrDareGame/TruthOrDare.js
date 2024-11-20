@@ -15,7 +15,7 @@ function TruthOrDare() {
   const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
   const wheelRef = useRef(null);
 
-  const [error, setError] = useState(""); // State for error message
+  const [error, setError] = useState("");
 
   const addPlayer = () => {
     if (!newPlayer.trim()) {
@@ -123,7 +123,7 @@ function TruthOrDare() {
             value={newPlayer}
             onChange={(e) => {
               setNewPlayer(e.target.value);
-              setError(""); // Clear error on input change
+              setError("");
             }}
             placeholder="Add a player"
             
