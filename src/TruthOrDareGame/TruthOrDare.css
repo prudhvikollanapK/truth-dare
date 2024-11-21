@@ -1,3 +1,7 @@
+body::-webkit-scrollbar {
+  width: 0px;
+}
+
 .app {
   display: flex;
   justify-content: space-between;
