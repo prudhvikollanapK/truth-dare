@@ -82,7 +82,7 @@ function TruthOrDare() {
   return (
     <div className="app">
       <div className="heading">
-        <h1>Truth r Dare</h1>
+        <h1>Truth/Dare</h1>
       </div>
 
       <div className="wheel-container">
@@ -104,7 +104,7 @@ function TruthOrDare() {
                   '--text-color': `hsl(${(index * 360) / players.length}, 100%, 20%)`,
                 }}
               >
-                <b>{player}</b>
+                {/* <b>{player}</b> */}
               </div>
             );
           })}
@@ -159,7 +159,7 @@ function TruthOrDare() {
             <div className="emoji-launch">
               <span className="laughing-emoji">{getRandomLaughingEmoji()}</span>
             </div>
-            <h1 className='selected-player'><i>{selectedPlayer}</i></h1>
+            <h1 className='selected-player'><i>- {selectedPlayer} -</i></h1>
           </div>
         </div>
       )}

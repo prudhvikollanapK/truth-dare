@@ -2,6 +2,30 @@ body::-webkit-scrollbar {
   width: 0px;
 }
 
+.player-details::-webkit-scrollbar {
+  width: 8px;
+}
+
+.player-details::-webkit-scrollbar-thumb {
+  background: #ffdd57;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(255, 221, 87, 0.8);
+}
+
+.player-details::-webkit-scrollbar-thumb:hover {
+  background: #ffd633;
+}
+
+.player-details::-webkit-scrollbar-track {
+  background: #222;
+  border-radius: 10px;
+}
+
+.player-details {
+  scrollbar-width: thin;
+  scrollbar-color: #ffdd57 #222;
+}
+
 .app {
   display: flex;
   justify-content: space-between;
@@ -114,6 +138,9 @@ body::-webkit-scrollbar {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
   z-index: 5;
   animation: fadeInUp 1.5s ease-in-out;
+  max-height: 50%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 @media (max-width: 768px) {
@@ -121,6 +148,7 @@ body::-webkit-scrollbar {
     width: 80%;
     right: 5%;
     top: 60%;
+    max-height: 40%;
   }
 }
 
